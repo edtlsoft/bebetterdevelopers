@@ -40,9 +40,9 @@ class ProfesionalesSeeder extends Seeder
             'profesion_id' => Profesion::where('nombre', 'Ingeniero')->first()->id,
             'municipio_id' => Municipio::where('nombre', 'San Cristobal')->first()->id,
         ])->vehiculo()->create([
-            'tipo' => 'Camioneta',
-            'marca' => 'Ford',
-            'ano' => '2005',
+            'tipo' => 'Motocicleta',
+            'marca' => 'Yamaha',
+            'ano' => '2013',
         ]);
     }
 }

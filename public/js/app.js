@@ -3514,23 +3514,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"]
-  } // props: {
-  //     profesionales: {
-  //         type: Object,
-  //         required: true,
-  //     }
-  // }
+  },
+  props: {
+    profesionales: {
+      type: Array,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    abrirModal: function abrirModal() {
+      this.modal = true;
+    },
+    cerrarModal: function cerrarModal() {
+      this.modal = false;
+    },
+    deleteProfesional: function deleteProfesional(profesional_id, indice) {
+      var _this = this;
 
+      axios["delete"]("/profesionales/".concat(profesional_id)).then(function (response) {
+        _this.profesionales.splice(indice, 1);
+      })["catch"](function (error) {
+        alert('Error: ' + error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -47676,6 +47694,23 @@ var render = function() {
             "div",
             { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
             [
+              _c("div", { staticClass: "col-12" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "inline-flex justify-center mx-right py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.abrirModal()
+                      }
+                    }
+                  },
+                  [_vm._v("Nuevo")]
+                )
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "flex flex-col" }, [
                 _c(
                   "div",
@@ -47711,11 +47746,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Id"
-                                        )
-                                      ]
+                                      [_vm._v("Id")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47725,11 +47756,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Opciones"
-                                        )
-                                      ]
+                                      [_vm._v("Opciones")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47739,11 +47766,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Nombres y Apellidos"
-                                        )
-                                      ]
+                                      [_vm._v("Nombres y Apellidos")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47753,11 +47776,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Cedula"
-                                        )
-                                      ]
+                                      [_vm._v("Cedula")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47767,11 +47786,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Fecha de nacimiento"
-                                        )
-                                      ]
+                                      [_vm._v("Fecha de nacimiento")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47781,11 +47796,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Profesion"
-                                        )
-                                      ]
+                                      [_vm._v("Profesion")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47795,11 +47806,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Dirección"
-                                        )
-                                      ]
+                                      [_vm._v("Dirección")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47809,11 +47816,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Municipio"
-                                        )
-                                      ]
+                                      [_vm._v("Municipio")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47823,11 +47826,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Telefono"
-                                        )
-                                      ]
+                                      [_vm._v("Telefono")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47837,11 +47836,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Sexo"
-                                        )
-                                      ]
+                                      [_vm._v("Sexo")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47851,11 +47846,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Vehiculo"
-                                        )
-                                      ]
+                                      [_vm._v("Vehiculo")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47865,11 +47856,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Marca"
-                                        )
-                                      ]
+                                      [_vm._v("Marca")]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -47879,11 +47866,7 @@ var render = function() {
                                           "px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
                                         attrs: { scope: "col" }
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                Año"
-                                        )
-                                      ]
+                                      [_vm._v("Año")]
                                     )
                                   ])
                                 ]),
@@ -47894,32 +47877,18 @@ var render = function() {
                                     staticClass:
                                       "bg-white divide-y divide-gray-200"
                                   },
-                                  [
-                                    _c("tr", [
+                                  _vm._l(_vm.profesionales, function(
+                                    profesional,
+                                    indice
+                                  ) {
+                                    return _c("tr", { key: profesional.id }, [
                                       _c(
                                         "td",
                                         {
                                           staticClass:
-                                            "px-6 py-4 whitespace-nowrap"
+                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "flex items-center"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "text-sm font-medium text-gray-900"
-                                                },
-                                                [_vm._v("Jane Cooper")]
-                                              )
-                                            ]
-                                          )
-                                        ]
+                                        [_vm._v(_vm._s(profesional.id))]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -47941,16 +47910,9 @@ var render = function() {
                                                 {
                                                   staticClass:
                                                     "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                                  attrs: { type: "submit" }
+                                                  attrs: { type: "button" }
                                                 },
-                                                [
-                                                  _c("i", {
-                                                    staticClass: "fa fa-edit"
-                                                  }),
-                                                  _vm._v(
-                                                    " Editar\n                                                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Editar")]
                                               ),
                                               _vm._v(" "),
                                               _c(
@@ -47958,13 +47920,17 @@ var render = function() {
                                                 {
                                                   staticClass:
                                                     "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                                  attrs: { type: "submit" }
+                                                  attrs: { type: "button" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.deleteProfesional(
+                                                        profesional.id,
+                                                        indice
+                                                      )
+                                                    }
+                                                  }
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                        Eliminar\n                                                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Eliminar")]
                                               )
                                             ]
                                           )
@@ -47975,20 +47941,29 @@ var render = function() {
                                         "td",
                                         {
                                           staticClass:
-                                            "px-6 py-4 whitespace-nowrap"
+                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                        },
+                                        [_vm._v(_vm._s(profesional.nombre))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticClass:
+                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                        },
+                                        [_vm._v(_vm._s(profesional.cedula))]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticClass:
+                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
                                         [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-sm text-gray-900"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "Regional Paradigm Technician"
-                                              )
-                                            ]
+                                          _vm._v(
+                                            _vm._s(profesional.fecha_nacimiento)
                                           )
                                         ]
                                       ),
@@ -47999,7 +47974,11 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(profesional.profesion.nombre)
+                                          )
+                                        ]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48008,7 +47987,7 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [_vm._v(_vm._s(profesional.direccion))]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48017,7 +47996,11 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(profesional.municipio.nombre)
+                                          )
+                                        ]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48026,7 +48009,7 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [_vm._v(_vm._s(profesional.telefono))]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48035,7 +48018,15 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              profesional.sexo == "M"
+                                                ? "Masculino"
+                                                : "Femenino"
+                                            )
+                                          )
+                                        ]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48044,7 +48035,15 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              profesional.vehiculo
+                                                ? profesional.vehiculo.tipo
+                                                : ""
+                                            )
+                                          )
+                                        ]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48053,7 +48052,15 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              profesional.vehiculo
+                                                ? profesional.vehiculo.marca
+                                                : ""
+                                            )
+                                          )
+                                        ]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -48062,19 +48069,19 @@ var render = function() {
                                           staticClass:
                                             "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                         },
-                                        [_vm._v("Admin")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                                        },
-                                        [_vm._v("Admin")]
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              profesional.vehiculo
+                                                ? profesional.vehiculo.ano
+                                                : ""
+                                            )
+                                          )
+                                        ]
                                       )
                                     ])
-                                  ]
+                                  }),
+                                  0
                                 )
                               ]
                             )
@@ -48088,7 +48095,130 @@ var render = function() {
             ]
           )
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm.modal
+        ? _c("div", { staticClass: "fixed z-10 inset-0 overflow-y-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "fixed inset-0 transition-opacity",
+                    attrs: { "aria-hidden": "true" }
+                  },
+                  [
+                    _c("div", {
+                      staticClass: "absolute inset-0 bg-gray-500 opacity-75"
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "hidden sm:inline-block sm:align-middle sm:h-screen",
+                    attrs: { "aria-hidden": "true" }
+                  },
+                  [_vm._v("​")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full",
+                    attrs: {
+                      role: "dialog",
+                      "aria-modal": "true",
+                      "aria-labelledby": "modal-headline"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" },
+                      [
+                        _c("div", { staticClass: "sm:flex sm:items-start" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
+                            },
+                            [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "text-lg leading-6 font-medium text-gray-900",
+                                  attrs: { id: "modal-headline" }
+                                },
+                                [_vm._v("Profesional")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-2" }, [
+                                _c(
+                                  "p",
+                                  { staticClass: "text-sm text-gray-500" },
+                                  [
+                                    _vm._v(
+                                      "Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone."
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Deactivate")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.cerrarModal()
+                              }
+                            }
+                          },
+                          [_vm._v("\n            Cancel\n          ")]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ])
+        : _vm._e()
     ]
   )
 }
@@ -63263,14 +63393,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./resources/js/Pages/Dashboard.vue ***!
   \******************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=template&id=097ba13b& */ "./resources/js/Pages/Dashboard.vue?vue&type=template&id=097ba13b&");
 /* harmony import */ var _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -63300,7 +63431,7 @@ component.options.__file = "resources/js/Pages/Dashboard.vue"
 /*!*******************************************************************!*\
   !*** ./resources/js/Pages/Dashboard.vue?vue&type=script&lang=js& ***!
   \*******************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

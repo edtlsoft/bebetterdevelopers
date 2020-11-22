@@ -18,7 +18,13 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $profesionales = [];
-    
+    $profesionales = \App\Models\Profesional::with(['profesion', 'municipio', 'vehiculo'])->get();
+
     return Inertia\Inertia::render('Dashboard', compact('profesionales'));
 })->name('dashboard');
+
+Route::delete('/profesionales/{profesional}', function(\App\Models\Profesional $profesional){
+    $profesional->vehiculo()->delete();
+    
+    return $profesional->delete();
+});
