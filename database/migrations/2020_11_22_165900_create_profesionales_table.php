@@ -19,7 +19,7 @@ class CreateProfesionalesTable extends Migration
             $table->string('cedula', 20);
             $table->string('fecha_nacimiento', 10);
             $table->string('direccion', 150);
-            $table->string('telefono', 20);
+            $table->string('telefono', 20)->nullable();
             $table->enum('sexo', ['M', 'F']);
             $table->foreignId('profesion_id')->constrained('profesiones');
             $table->foreignId('municipio_id')->constrained('municipios');

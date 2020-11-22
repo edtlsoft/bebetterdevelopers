@@ -17,7 +17,7 @@ class CreateVehiculosTable extends Migration
             $table->id();
             $table->string('tipo', '50');
             $table->string('marca', '50');
-            $table->string('ano', '4');
+            $table->smallInteger('ano');
             $table->foreignId('profesional_id')->constrained('profesionales');
             $table->timestamps();
         });
