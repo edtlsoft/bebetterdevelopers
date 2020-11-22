@@ -66,7 +66,7 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex justify-between">
                                                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                            <i class="fas fa-edit"></i> Editar
+                                                            <i class="fa fa-edit"></i> Editar
                                                         </button>
                                                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                             Eliminar

@@ -47945,7 +47945,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _c("i", {
-                                                    staticClass: "fas fa-edit"
+                                                    staticClass: "fa fa-edit"
                                                   }),
                                                   _vm._v(
                                                     " Editar\n                                                    "

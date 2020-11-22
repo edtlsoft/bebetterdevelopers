@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* @import '@fortawesome/fontawesome-free/webfonts'; */
+/* @import '@fortawesome/fontawesome-free/webfonts//fa-brands-400.eot'; */
+@import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+
+
